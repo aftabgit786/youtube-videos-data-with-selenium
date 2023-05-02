@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Scraped Video Data</title>
+        <style>
+            body {
+  background-color: #E2F1F8;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 48px;
+  color: #00487C;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+li {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #DDDDDD;
+  border-radius: 5px;
+  box-shadow: 0px 3px 3px rgba(0,0,0,0.1);
+  background-color: #FFFFFF;
+  width: 300px;
+  max-width: 100%;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 24px;
+  color: #00487C;
+}
+
+p {
+  margin: 10px 0;
+  color: #333333;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 10px auto;
+  border: 1px solid #DDDDDD;
+  box-shadow: 0px 3px 3px rgba(0,0,0,0.1);
+}
+
+        </style>
+    </head>
+    <body>
+        <h1>Scraped Video Data</h1>
+        <ul>
+            {% for video in videos %}
+            <li>
+                <h2>{{ video['Title'] }}</h2>
+                <p>Views: {{ video['Views'] }}</p>
+                <p>Upload Time: {{ video['Upload Time'] }}</p>
+                <p>Duration: {{ video['Video Duration'] }}</p>
+                <img src="{{ video['Thumbnails'] }}" alt="Thumbnail">
+            </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
